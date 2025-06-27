@@ -1,19 +1,17 @@
-process.stdout.write("beno\n");
-process.stdout.write("Solomon");
+const express = require('express');
 
-const arr = ["Dog","Cat","Rabbit"];
+const app = express();
 
-const output = (val= 0) => {
-    process.stdout.write(arr[val]);
-}
+const port =3000;
 
-output(2);
+app.get('/',(req,res)=> {
+    res.send('works');
+})
 
-process.stdin.on('data',data => {
-   process.stdout.write(`you wrote  ${data}`); 
-   process.exit();
-});
+app.get('/test',(req,res)=> {
+    res.send('test');
+})
 
-process.on('exit',(data)=> {
-    console.log('you exited');
+app.listen(port,()=> {
+    return console.log('ready for runnung');
 })
